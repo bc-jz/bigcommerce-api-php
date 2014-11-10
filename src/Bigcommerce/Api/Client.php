@@ -836,7 +836,7 @@ class Client
 
 	public static function updateSku($id, $object)
 	{
-		return self::updateResource('/product/skus' . $id, $object);
+		return self::updateResource('/product/skus/' . $id, $object);
 	}
 
 
