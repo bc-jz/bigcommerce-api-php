@@ -1,10 +1,10 @@
 <?php
+namespace Bigcommerce\Api;
+
 //Added for use resetting CURLOPT_INFILE back to a default STDIN after closing file
 if(!defined("STDIN")) {
-define("STDIN", fopen('php://stdin','r'))
+define("STDIN", fopen('php://stdin','r'));
 }
-
-namespace Bigcommerce\Api;
 
 class Connection
 {
