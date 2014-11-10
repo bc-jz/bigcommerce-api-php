@@ -1182,7 +1182,7 @@ class Shipment extends Resource
     }
     public function update()
     {
-        return Client::createResource('/orders/' . $this->order_id . '/shipments' . $this->id, $this->getCreateFields());
+        return Client::createResource('/orders/' . $this->order_id . '/shipments/' . $this->id, $this->getUpdateFields());
     }
 }
 namespace Bigcommerce\Api\Resources;
