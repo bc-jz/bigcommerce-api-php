@@ -1174,8 +1174,8 @@ use Bigcommerce\Api\Resource;
 use Bigcommerce\Api\Client;
 class Shipment extends Resource
 {
-    protected $ignoreOnCreate = array('id', 'order_id', 'date_created', 'customer_id', 'shipping_method');
-    protected $ignoreOnUpdate = array('id', 'order_id', 'date_created', 'customer_id', 'shipping_method', 'items');
+    protected $ignoreOnCreate = array('id', 'order_id', 'date_created', 'customer_id', 'billing_address', 'shipping_address');
+    protected $ignoreOnUpdate = array('id', 'order_id', 'date_created', 'customer_id', 'billing_address', 'shipping_address', 'items');
     public function create()
     {
         return Client::createResource('/orders/' . $this->order_id . '/shipments', $this->getCreateFields());
