@@ -1207,3 +1207,15 @@ class SkuOption extends Resource
         Client::updateResource('/products/' . $this->product_id . '/skus/' . $this->sku_id . '/options/' . $this->id, $this->getUpdateFields());
     }
 }
+namespace Bigcommerce\Api\Resources;
+
+use Bigcommerce\Api\Resource;
+use Bigcommerce\Api\Client;
+
+/**
+ * A Tax Class Object.  No special parameters at this time.  Can only GET.
+ */
+class TaxClass extends Resource
+{
+
+}
