@@ -1,10 +1,6 @@
 <?php
-namespace Bigcommerce\Api;
 
-//Added for use resetting CURLOPT_INFILE back to a default STDIN after closing file
-if(!defined("STDIN")) {
-define("STDIN", fopen('php://stdin','r'));
-}
+namespace Bigcommerce\Api;
 
 class Connection
 {
@@ -176,21 +172,12 @@ class Connection
             $body = json_encode($body);
         }
         $this->initializeRequest();
-        $handle = tmpfile();
-        fwrite($handle, $body);
-        fseek($handle, 0);
-        curl_setopt($this->curl, CURLOPT_INFILE, $handle);
-        curl_setopt($this->curl, CURLOPT_INFILESIZE, strlen($body));
+        
         curl_setopt($this->curl, CURLOPT_CUSTOMREQUEST, 'PUT');
+        curl_setopt($this->curl, CURLOPT_POSTFIELDS, $body);
         curl_setopt($this->curl, CURLOPT_URL, $url);
-        curl_setopt($this->curl, CURLOPT_PUT, true);
         curl_exec($this->curl);
-		
-		//Added to close the $handle object to remove it's file pointer from memory
-		fclose($handle);
-		//Without the below the next call to put() results in a "resource has gone away" warning or error depending
-		curl_setopt($this->curl, CURLOPT_INFILE, STDIN);
-		
+				
         return $this->handleResponse();
     }
     public function delete($url)
