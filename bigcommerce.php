@@ -992,8 +992,8 @@ use Bigcommerce\Api\Resource;
 use Bigcommerce\Api\Client;
 class Product extends Resource
 {
-    protected $ignoreOnCreate = array('date_created', 'date_modified');
-    protected $ignoreOnUpdate = array('id', 'rating_total', 'rating_count', 'date_created', 'date_modified', 'date_last_imported', 'number_sold', 'brand', 'images', 'discount_rules', 'configurable_fields', 'custom_fields', 'videos', 'skus', 'rules', 'option_set', 'options', 'tax_class');
+    protected $ignoreOnCreate = array('id', 'brand', 'images', 'discount_rules', 'configurable_fields', 'custom_fields', 'videos', 'skus', 'rules', 'option_set', 'options', 'tax_class', 'date_created', 'date_modified', 'primary_image', 'downloads');
+    protected $ignoreOnUpdate = array('id', 'rating_total', 'rating_count', 'date_created', 'date_modified', 'date_last_imported', 'number_sold', 'calculated_price', 'brand', 'images', 'discount_rules', 'configurable_fields', 'custom_fields', 'videos', 'skus', 'rules', 'option_set', 'options', 'tax_class', 'primary_image', 'downloads');
     protected $ignoreIfZero = array('tax_class_id');
     public function brand()
     {
